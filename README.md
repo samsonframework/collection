@@ -7,6 +7,5 @@
 [![Total Downloads](https://poser.pugx.org/samsonframework/collection/downloads.svg)](https://packagist.org/packages/samsonframework/collection)
 [![Stories in Ready](https://badge.waffle.io/samsonframework/collection.png?label=ready&title=Ready)](https://waffle.io/samsonframework/collection)
 
-
 Generic entity collection module
 
