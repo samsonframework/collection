@@ -9,6 +9,7 @@
         }
     ],
     "require": {
+      "samsonframework/base":"*"
     },
     "require-dev": {
         "phpunit/phpunit": "4.2.*"
