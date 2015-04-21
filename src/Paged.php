@@ -117,7 +117,7 @@ class Paged extends Generic
      */
     public function sorter($field, $destination = 'ASC')
     {
-        // TODO: add entity field checking
+        // TODO: We need query interface to return entity fields for checking if exists
         $this->sorter[] = array(
             $field,
             $destination
@@ -168,7 +168,26 @@ class Paged extends Generic
             $this->callHandlers($this->idHandlers, array(&$this->entityIDs));
         }
 
-        // Apply all sorter to request before cutting array into  pages
+        /* TODO: We need query interface to return entity fields to iterate them and add conditions to query
+        // Apply all search filters filters
+        if (sizeof($this->search)) {
+            // Concat all search works into one string for searching
+            $search = implode(' ', $this->search);
+
+            // Create OR condition group
+            $cond = Condition('or');
+
+            // Iterate all entity fields and create one or with LIKE condition
+            foreach ($this->query->fields() as $field) {
+                $cond->add(new Condition($field, $search, dbRelation::LIKE));
+            }
+
+            // Perform database query to get entity identifiers matching search request
+            $this->entityIDs = $this->query->cond($cond)->exec();
+        }
+        */
+
+            // Apply all sorter to request before cutting array into  pages
         if (sizeof($this->sorter)) {
             foreach ($this->sorter as $sorter) {
                 $this->query->order_by($sorter[0], $sorter[1]);
