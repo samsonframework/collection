@@ -175,19 +175,19 @@ class Paged extends Generic
             }
         }
 
-        // Recount pager
-        $this->pager->update(sizeof($this->entityIDs));
-
-        // Cut only needed entity identifiers from array
-        $this->entityIDs = array_slice($this->entityIDs, $this->pager->start, $this->pager->end);
-
-        // Finally get all entity objects by their identifiers
+        // Finally get all sorted entity objects by their filtered identifiers
         if (
             $this->query
             ->cond($this->entityPrimaryField, $this->entityIDs)
             ->fieldsNew($this->entityPrimaryField, $this->entityIDs)
         ) {
-            // Retrieve all entities from database with passed identifiers
+            // Recount pager
+            $this->pager->update(sizeof($this->entityIDs));
+
+            // Cut only needed entity identifiers from array
+            $this->entityIDs = array_slice($this->entityIDs, $this->pager->start, $this->pager->end);
+
+            // Retrieve all entities from database with passed identifiers limited by pager
             $this->collection = $this->query->cond($this->entityPrimaryField, $this->entityIDs)->exec();
         }
 
