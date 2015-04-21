@@ -59,6 +59,13 @@ class Paged extends Generic
 
         // Store pager object
         $this->pager = $pager;
+
+
+        // TODO: This must be incapsulated into QueryInterface ancestor
+        // Set entity primary
+        // Get current entity name
+        $entity = $query->className();
+        $this->entityPrimaryField = $entity::$_primary;
     }
 
     /**
