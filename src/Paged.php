@@ -44,6 +44,9 @@ class Paged extends Generic
     /** @var array Sorter parameters collection */
     protected $sorter = array();
 
+    /** @var array Search string collection */
+    protected $search = array();
+
     /**
      * Generic collection constructor
      * @param RenderInterface $renderer View render object
@@ -71,6 +74,23 @@ class Paged extends Generic
             $prefix.'html' => $this->render(),
             $prefix.'pager' => $this->pager->toHTML()
         );
+    }
+
+    /**
+     * Filter collection using field values and LIKE relation.
+     *
+     * @param string $search Search string
+     * @return $this Chaining
+     */
+    public function search($search)
+    {
+        // If input parameter is a string add it to search string collection
+        if (isset($search{0})) {
+            $this->search[] = $search;
+        }
+
+        // Chaining
+        return $this;
     }
 
     /**
