@@ -214,6 +214,11 @@ class Paged extends Generic
 
             // Retrieve all entities from database with passed identifiers limited by pager
             $this->collection = $this->query->cond($this->entityPrimaryField, $this->entityIDs)->exec();
+        } else { // Collection is empty
+            $this->entityIDs = array();
+
+            // Recount pager
+            $this->pager->update(sizeof($this->entityIDs));
         }
 
         return $this;
