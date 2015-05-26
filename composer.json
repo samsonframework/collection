@@ -22,5 +22,12 @@
         "psr-4": {
             "samsonframework\\collection\\": "src/"
         }
-    }
+    },
+    "config":{
+    "github-protocols":["https"]
+  },
+  "extra": { 
+    "samsonphp_package_compressable": "1", 
+    "samson_module_include": "1"
+  }
 }
