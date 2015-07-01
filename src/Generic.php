@@ -17,7 +17,7 @@ use samsonframework\orm\QueryInterface;
  * @package samsonframework\collection
  * @author Vitaly Iegorov <egorov@samsonos.com>
  */
-abstract class Generic implements \Iterator
+abstract class Generic implements \Iterator, \samson\core\iModuleViewable
 {
     /** @var array Collection */
     protected $collection = array();
