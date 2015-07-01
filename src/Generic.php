@@ -122,7 +122,7 @@ abstract class Generic implements \Iterator, \samson\core\iModuleViewable
      * @param string $prefix Prefix to be added to all keys in returned data collection
      * @return array Collection(key => value) of data for view context
      */
-    public function toView($prefix = '')
+    public function toView($prefix = '', array $restricted = null)
     {
         return array(
             $prefix.'html' => $this->render()
