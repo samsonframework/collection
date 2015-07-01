@@ -18,7 +18,7 @@ use samsonframework\orm\QueryInterface;
  * @package samsonframework\collection
  * @author Vitaly Iegorov <egorov@samsonos.com>
  */
-class Paged extends Generic implements \samson\core\iModuleViewable
+class Paged extends Generic
 {
     /** @var string Block view file */
     protected $indexView = 'www/collection/index';
