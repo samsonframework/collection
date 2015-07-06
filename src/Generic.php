@@ -137,7 +137,7 @@ abstract class Generic implements \Iterator, \samson\core\iModuleViewable
     public function __construct(RenderInterface $renderer, QueryInterface $query)
     {
         $this->query = $query;
-        $this->renderer = clone $renderer;
+        $this->renderer = $renderer;
     }
 
     /**
