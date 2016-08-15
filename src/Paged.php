@@ -202,9 +202,9 @@ class Paged extends Generic
 
         // Finally get all sorted entity objects by their filtered identifiers
         if (
-            $this->query
+            count($this->entityIDs = $this->query
             ->cond($this->entityPrimaryField, $this->entityIDs)
-            ->fieldsNew($this->entityPrimaryField, $this->entityIDs)
+            ->fieldsNew($this->entityPrimaryField))
         ) {
             // Recount pager
             $this->pager->update(sizeof($this->entityIDs));
